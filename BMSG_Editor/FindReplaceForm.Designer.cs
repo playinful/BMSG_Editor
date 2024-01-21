@@ -142,7 +142,7 @@
             // textBox_Find
             // 
             textBox_Find.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            textBox_Find.Location = new Point(86, 34);
+            textBox_Find.Location = new Point(86, 3);
             textBox_Find.Name = "textBox_Find";
             textBox_Find.Size = new Size(210, 23);
             textBox_Find.TabIndex = 8;
@@ -150,7 +150,7 @@
             // textBox_Replace
             // 
             textBox_Replace.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            textBox_Replace.Location = new Point(86, 3);
+            textBox_Replace.Location = new Point(86, 34);
             textBox_Replace.Name = "textBox_Replace";
             textBox_Replace.Size = new Size(210, 23);
             textBox_Replace.TabIndex = 9;
@@ -172,10 +172,10 @@
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Controls.Add(textBox_Replace, 1, 0);
-            tableLayoutPanel1.Controls.Add(textBox_Find, 1, 1);
+            tableLayoutPanel1.Controls.Add(textBox_Replace, 1, 1);
             tableLayoutPanel1.Controls.Add(label2, 0, 1);
             tableLayoutPanel1.Controls.Add(label1, 0, 0);
+            tableLayoutPanel1.Controls.Add(textBox_Find, 1, 0);
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Margin = new Padding(0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";

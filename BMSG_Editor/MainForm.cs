@@ -36,7 +36,7 @@ namespace BMSG_Editor
                 saveToolStripMenuItem.Enabled = false;
                 saveAsToolStripMenuItem.Enabled = false;
                 closeToolStripMenuItem.Enabled = false;
-                //findToolStripMenuItem.Enabled = false;
+                findToolStripMenuItem.Enabled = false;
                 textBox_String.Text = "";
                 textBox_Title.Text = "";
                 return;
@@ -446,7 +446,7 @@ namespace BMSG_Editor
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Created by playinful in 2024\nhttps://github.com/playinful", "About BMSG Editor");
+            MessageBox.Show("BMSG Editor Version 1.1\nCreated by playinful in 2024\nhttps://github.com/playinful", "About BMSG Editor");
         }
     }
 }
