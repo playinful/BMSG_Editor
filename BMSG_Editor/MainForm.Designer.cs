@@ -1,6 +1,6 @@
 ﻿namespace BMSG_Editor
 {
-    partial class MainWindow
+    partial class MainForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             listBox1 = new ListBox();
-            textBox1 = new TextBox();
+            textBox_String = new TextBox();
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
             openToolStripMenuItem = new ToolStripMenuItem();
@@ -41,9 +41,11 @@
             closeToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator3 = new ToolStripSeparator();
             exitToolStripMenuItem = new ToolStripMenuItem();
+            editToolStripMenuItem = new ToolStripMenuItem();
+            findToolStripMenuItem = new ToolStripMenuItem();
             aboutToolStripMenuItem = new ToolStripMenuItem();
-            label1 = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
+            textBox_Title = new TextBox();
             menuStrip1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
@@ -56,26 +58,28 @@
             listBox1.ItemHeight = 15;
             listBox1.Location = new Point(3, 3);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(144, 383);
+            listBox1.Size = new Size(144, 376);
             listBox1.TabIndex = 0;
             listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             listBox1.DoubleClick += listBox1_DoubleClick;
             // 
-            // textBox1
+            // textBox_String
             // 
-            textBox1.AcceptsReturn = true;
-            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox1.Location = new Point(153, 3);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(620, 383);
-            textBox1.TabIndex = 1;
-            textBox1.WordWrap = false;
-            textBox1.TextChanged += textBox1_TextChanged;
+            textBox_String.AcceptsReturn = true;
+            textBox_String.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBox_String.Location = new Point(153, 3);
+            textBox_String.Multiline = true;
+            textBox_String.Name = "textBox_String";
+            textBox_String.Size = new Size(620, 376);
+            textBox_String.TabIndex = 1;
+            textBox_String.WordWrap = false;
+            textBox_String.TextChanged += textBox1_TextChanged;
+            textBox_String.Leave += textBox_String_Leave;
+            textBox_String.Validated += textBox_String_Validated;
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, aboutToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, editToolStripMenuItem, aboutToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 24);
@@ -143,6 +147,21 @@
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
+            // editToolStripMenuItem
+            // 
+            editToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { findToolStripMenuItem });
+            editToolStripMenuItem.Name = "editToolStripMenuItem";
+            editToolStripMenuItem.Size = new Size(39, 20);
+            editToolStripMenuItem.Text = "Edit";
+            // 
+            // findToolStripMenuItem
+            // 
+            findToolStripMenuItem.Name = "findToolStripMenuItem";
+            findToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.F;
+            findToolStripMenuItem.Size = new Size(198, 22);
+            findToolStripMenuItem.Text = "Find / Replace...";
+            findToolStripMenuItem.Click += findToolStripMenuItem_Click;
+            // 
             // aboutToolStripMenuItem
             // 
             aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
@@ -150,44 +169,44 @@
             aboutToolStripMenuItem.Text = "About";
             aboutToolStripMenuItem.Click += aboutToolStripMenuItem_Click;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 31);
-            label1.Name = "label1";
-            label1.Size = new Size(38, 15);
-            label1.TabIndex = 3;
-            label1.Text = "label1";
-            // 
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 150F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Controls.Add(textBox1, 1, 0);
+            tableLayoutPanel1.Controls.Add(textBox_String, 1, 0);
             tableLayoutPanel1.Controls.Add(listBox1, 0, 0);
-            tableLayoutPanel1.Location = new Point(12, 49);
+            tableLayoutPanel1.Location = new Point(12, 56);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(776, 389);
+            tableLayoutPanel1.Size = new Size(776, 382);
             tableLayoutPanel1.TabIndex = 4;
             // 
-            // MainWindow
+            // textBox_Title
+            // 
+            textBox_Title.Location = new Point(15, 27);
+            textBox_Title.Name = "textBox_Title";
+            textBox_Title.Size = new Size(144, 23);
+            textBox_Title.TabIndex = 5;
+            textBox_Title.TextChanged += textBox_Title_TextChanged;
+            // 
+            // MainForm
             // 
             AllowDrop = true;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(textBox_Title);
             Controls.Add(tableLayoutPanel1);
-            Controls.Add(label1);
             Controls.Add(menuStrip1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
             MinimumSize = new Size(325, 175);
-            Name = "MainWindow";
+            Name = "MainForm";
             Text = "BMSG Editor";
+            FormClosing += MainForm_FormClosing;
             DragDrop += MainWindow_DragDrop;
             DragEnter += MainWindow_DragEnter;
             menuStrip1.ResumeLayout(false);
@@ -201,7 +220,7 @@
         #endregion
 
         private ListBox listBox1;
-        private TextBox textBox1;
+        private TextBox textBox_String;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem fileToolStripMenuItem;
         private ToolStripMenuItem openToolStripMenuItem;
@@ -212,8 +231,10 @@
         private ToolStripMenuItem closeToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator3;
         private ToolStripMenuItem exitToolStripMenuItem;
-        private Label label1;
         private ToolStripMenuItem aboutToolStripMenuItem;
         private TableLayoutPanel tableLayoutPanel1;
+        private TextBox textBox_Title;
+        private ToolStripMenuItem editToolStripMenuItem;
+        private ToolStripMenuItem findToolStripMenuItem;
     }
 }
